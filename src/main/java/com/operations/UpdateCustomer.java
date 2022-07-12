@@ -1,5 +1,6 @@
 package com.operations;
 
+import models.Customer;
 import services.CustomerServiceDB;
 
 import java.io.IOException;
@@ -18,7 +19,12 @@ public class UpdateCustomer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            Integer updatedId = customerServiceDBObj.updateCustomer(request.getParameter("name"),request.getParameter("email"),Integer.valueOf(request.getParameter("id")));
+            Customer customer = new Customer();
+            customer.setId(Integer.valueOf(request.getParameter("id")));
+            customer.setName(request.getParameter("name"));
+            customer.setEmail(request.getParameter("email"));
+
+            Integer updatedId = customerServiceDBObj.updateCustomer(customer);
             response.sendRedirect("Success.jsp?msg=ID "+updatedId + " Updated");
         } catch (Exception e) {
             e.printStackTrace();

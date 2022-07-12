@@ -14,6 +14,16 @@ public class Ticket {
 
     private Enum status;
     private Customer customer;
+    private Integer customerId;
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
     public Integer getId() {
         return id;
     }

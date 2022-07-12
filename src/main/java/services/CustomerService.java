@@ -9,6 +9,6 @@ public interface CustomerService {
     Customer getCustomerWithId(int id) throws SQLException, ClassNotFoundException;
     List<Customer> getAllCustomers() throws SQLException, ClassNotFoundException;
     Integer createCustomer(Customer customer) throws SQLException, ClassNotFoundException;
-    Integer updateCustomer(String name, String email, int id) throws SQLException, ClassNotFoundException;
+    Integer updateCustomer(Customer customer) throws SQLException, ClassNotFoundException;
     void deleteCustomer(int id) throws SQLException, ClassNotFoundException;
 }

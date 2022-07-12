@@ -1,12 +1,5 @@
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:07 +0530] "GET /ViewCustomer.jsp HTTP/1.1" 200 667 http-bio-8080-exec-1 249
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:10 +0530] "GET /ViewAllCustomer HTTP/1.1" 200 247 http-bio-8080-exec-3 123
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:12 +0530] "GET /ViewCustomer.jsp HTTP/1.1" 200 667 http-bio-8080-exec-4 4
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:14 +0530] "GET /ViewAllCustomer HTTP/1.1" 200 247 http-bio-8080-exec-5 17
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:16 +0530] "GET /ViewCustomer.jsp HTTP/1.1" 200 667 http-bio-8080-exec-6 2
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:19 +0530] "GET /ViewCustomer?id=8 HTTP/1.1" 302 - http-bio-8080-exec-7 24
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:20 +0530] "GET /Result.jsp?id=8&name=ashwin&email=ashwin@gmail.com HTTP/1.1" 200 1143 http-bio-8080-exec-8 44
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:21 +0530] "GET /UpdateCustomer.jsp?id=8 HTTP/1.1" 200 1065 http-bio-8080-exec-9 42
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:30 +0530] "POST /UpdateCustomer HTTP/1.1" 302 - http-bio-8080-exec-10 20
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:30 +0530] "GET /Success.jsp?msg=ID%208%20Updated HTTP/1.1" 200 435 http-bio-8080-exec-10 41
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:31 +0530] "GET /Home.jsp? HTTP/1.1" 200 1112 http-bio-8080-exec-10 39
-0:0:0:0:0:0:0:1 - - [12/Jul/2022:00:14:34 +0530] "GET /ViewAllCustomer HTTP/1.1" 200 242 http-bio-8080-exec-10 18
+0:0:0:0:0:0:0:1 - - [12/Jul/2022:15:26:41 +0530] "GET /ViewAllTickets.jsp HTTP/1.1" 200 1256 http-bio-8080-exec-1 282
+0:0:0:0:0:0:0:1 - - [12/Jul/2022:15:26:44 +0530] "GET /ViewAllTicket?customer_id=&status= HTTP/1.1" 200 327 http-bio-8080-exec-3 121
+0:0:0:0:0:0:0:1 - - [12/Jul/2022:15:26:47 +0530] "GET /ViewAllTicket?customer_id=8&status= HTTP/1.1" 200 249 http-bio-8080-exec-4 22
+0:0:0:0:0:0:0:1 - - [12/Jul/2022:15:26:51 +0530] "GET /ViewAllTicket?customer_id=8&status=INITIATED HTTP/1.1" 200 169 http-bio-8080-exec-5 22
+0:0:0:0:0:0:0:1 - - [12/Jul/2022:15:26:54 +0530] "GET /ViewAllTicket?customer_id=8&status=ACTIVE HTTP/1.1" 200 249 http-bio-8080-exec-6 20

@@ -89,15 +89,15 @@ public class CustomerServiceDB implements CustomerService{
     }
 
     @Override
-    public Integer updateCustomer(String name, String email, int id) throws SQLException, ClassNotFoundException {
+    public Integer updateCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Connection con = DatabaseConnection.initializeDatabase();
 
         PreparedStatement st = con
                 .prepareStatement("update Customers set name=?, email=? where id=?");
 
-        st.setString(1,name);
-        st.setString(2,email);
-        st.setInt(3,id);
+        st.setString(1,customer.getName());
+        st.setString(2,customer.getEmail());
+        st.setInt(3,customer.getId());
 
         int affectedRows = st.executeUpdate();
 
@@ -107,7 +107,7 @@ public class CustomerServiceDB implements CustomerService{
 
         st.close();
         con.close();
-        return id;
+        return customer.getId();
     }
 
     @Override

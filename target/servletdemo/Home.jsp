@@ -22,12 +22,38 @@
         <tr>
             <td>View all customers in database:</td>
             <td><input type="button" value="View data"
-                onclick="window.location.href='ViewAllCustomer'" /></td>
+                onclick="window.location.href='ViewAllCustomer.jsp'" /></td>
         </tr>
         <tr>
             <td>To view your details from the Database:</td>
             <td><input type="button" value="Select data"
                 onclick="window.location.href='ViewCustomer.jsp'" /></td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>Create Ticket</td>
+            <td><input type="button" value="Select data"
+                 onclick="window.location.href='CreateTicket.jsp'" /></td>
+        </tr>
+        <tr>
+            <td>Delete Ticket</td>
+            <td><input type="button" value="Select data"
+                 onclick="window.location.href='DeleteTicket.jsp'" /></td>
+        </tr>
+        <tr>
+            <td>View Ticket with ID</td>
+            <td><input type="button" value="Select data"
+                 onclick="window.location.href='ViewTicket.jsp'" /></td>
+        </tr>
+        <tr>
+            <td>View All Tickets</td>
+            <td><input type="button" value="Select data"
+                 onclick="window.location.href='ViewAllTickets.jsp'" /></td>
         </tr>
     </table>
 
