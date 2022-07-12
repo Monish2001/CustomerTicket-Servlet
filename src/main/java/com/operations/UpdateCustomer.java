@@ -1,6 +1,8 @@
 package com.operations;
 
 import models.Customer;
+import services.CustomerFactory;
+import services.CustomerService;
 import services.CustomerServiceDB;
 
 import java.io.IOException;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/UpdateCustomer")
 public class UpdateCustomer extends HttpServlet {
-    CustomerServiceDB customerServiceDBObj = CustomerServiceDB.getInstance();
+    CustomerFactory cf = CustomerFactory.getCFInstance();
+//    CustomerService customerServiceObj = cf.getInstance("DB");
+    CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -24,7 +28,7 @@ public class UpdateCustomer extends HttpServlet {
             customer.setName(request.getParameter("name"));
             customer.setEmail(request.getParameter("email"));
 
-            Integer updatedId = customerServiceDBObj.updateCustomer(customer);
+            Integer updatedId = customerServiceObj.updateCustomer(customer);
             response.sendRedirect("Success.jsp?msg=ID "+updatedId + " Updated");
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package com.operations;
 
+import services.CustomerFactory;
+import services.CustomerService;
 import services.CustomerServiceDB;
 
 import javax.servlet.ServletException;
@@ -11,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DeleteCustomer")
 public class DeleteCustomer extends HttpServlet {
-    CustomerServiceDB customerServiceDBObj = CustomerServiceDB.getInstance();
+    CustomerFactory cf = CustomerFactory.getCFInstance();
+//    CustomerService customerServiceObj = cf.getInstance("DB");
+    CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
         try {
-            customerServiceDBObj.deleteCustomer(Integer.valueOf(request.getParameter("id")));
+            customerServiceObj.deleteCustomer(Integer.valueOf(request.getParameter("id")));
             response.sendRedirect("Success.jsp?msg=Delete");
         } catch (Exception e) {
             e.printStackTrace();

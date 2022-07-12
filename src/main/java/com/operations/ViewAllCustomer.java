@@ -1,6 +1,8 @@
 package com.operations;
 
 import models.Customer;
+import services.CustomerFactory;
+import services.CustomerService;
 import services.CustomerServiceDB;
 
 import java.io.IOException;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ViewAllCustomer")
 public class ViewAllCustomer extends HttpServlet {
-    CustomerServiceDB customerServiceDBObj = CustomerServiceDB.getInstance();
+    CustomerFactory cf = CustomerFactory.getCFInstance();
+//    CustomerService customerServiceObj = cf.getInstance("DB");
+    CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -26,7 +30,7 @@ public class ViewAllCustomer extends HttpServlet {
 
             out.println("<table border=1 width=50% height=50%>");
             out.println("<tr><th>EmpId</th><th>EmpName</th><th>Salary</th><tr>");
-            List<Customer> customerList = customerServiceDBObj.getAllCustomers();
+            List<Customer> customerList = customerServiceObj.getAllCustomers();
             for (Customer customer:
                  customerList) {
                 out.println("<tr><td>" + customer.getId() + "</td><td>" + customer.getName() + "</td><td>" + customer.getEmail() + "</td></tr>");

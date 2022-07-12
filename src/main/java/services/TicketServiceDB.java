@@ -145,12 +145,8 @@ public class TicketServiceDB implements TicketService{
         return ticket.getId();
     }
 
-    static TicketServiceDB ticketServiceDBObj = new TicketServiceDB();
-    private TicketServiceDB()
+    public TicketServiceDB()
     {
 
-    }
-    public static TicketServiceDB getInstance(){
-        return ticketServiceDBObj;
     }
 }

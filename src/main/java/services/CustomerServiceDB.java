@@ -128,12 +128,8 @@ public class CustomerServiceDB implements CustomerService{
         con.close();
     }
 
-    static CustomerServiceDB customerServiceDBObj = new CustomerServiceDB();
-    private CustomerServiceDB()
+    public CustomerServiceDB()
     {
 
-    }
-    public static CustomerServiceDB getInstance(){
-        return customerServiceDBObj;
     }
 }

@@ -1,6 +1,8 @@
 package com.operations;
 
 import models.Ticket;
+import services.TicketFactory;
+import services.TicketService;
 import services.TicketServiceDB;
 
 import java.io.IOException;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ViewAllTicket")
 public class ViewAllTicket extends HttpServlet {
-    TicketServiceDB ticketServiceDBObj = TicketServiceDB.getInstance();
+    TicketFactory tf = TicketFactory.getTFInstance();
+//    TicketService ticketServiceObj = tf.getInstance("DB");
+    TicketService ticketServiceObj = tf.getInstance("IM");
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -35,7 +39,7 @@ public class ViewAllTicket extends HttpServlet {
             }
 
             String status = request.getParameter("status");
-            List<Ticket> ticketList = ticketServiceDBObj.getAllTickets(customerId, status);
+            List<Ticket> ticketList = ticketServiceObj.getAllTickets(customerId, status);
             for (Ticket ticket:
                     ticketList) {
                 out.println("<tr><td>" + ticket.getId() + "</td><td>" + ticket.getTitle() + "</td><td>" + ticket.getDescription() + "</td><td>" + ticket.getStatus() + "</td><td>" + ticket.getCustomerId() + "</td></tr>");

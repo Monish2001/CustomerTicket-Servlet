@@ -2,6 +2,8 @@ package com.operations;
 import models.Customer;
 import models.Ticket;
 import services.CustomerServiceDB;
+import services.TicketFactory;
+import services.TicketService;
 import services.TicketServiceDB;
 
 import java.io.IOException;
@@ -15,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/CreateTicket")
 public class CreateTicket extends HttpServlet {
-    TicketServiceDB ticketServiceDBObj = TicketServiceDB.getInstance();
+    TicketFactory tf = TicketFactory.getTFInstance();
+
+//    TicketService ticketServiceObj = tf.getInstance("DB");
+    TicketService ticketServiceObj = tf.getInstance("IM");
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException
@@ -27,7 +32,7 @@ public class CreateTicket extends HttpServlet {
             ticket.setStatus(Ticket.TicketStatus.INITIATED);
             ticket.setCustomerId(Integer.valueOf(request.getParameter("customer_id")));
 
-            Integer createdTicketId = ticketServiceDBObj.createTicket(ticket);
+            Integer createdTicketId = ticketServiceObj.createTicket(ticket);
 
             PrintWriter out = response.getWriter();
             response.sendRedirect("Success.jsp?msg=ID "+createdTicketId + " Created");

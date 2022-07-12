@@ -3,6 +3,8 @@ package com.operations;
 import models.Customer;
 import models.Ticket;
 import services.CustomerServiceDB;
+import services.TicketFactory;
+import services.TicketService;
 import services.TicketServiceDB;
 
 import java.io.IOException;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/UpdateTicket")
 public class UpdateTicket extends HttpServlet {
-    TicketServiceDB ticketServiceDBObj = TicketServiceDB.getInstance();
+    TicketFactory tf = TicketFactory.getTFInstance();
+//    TicketService ticketServiceObj = tf.getInstance("DB");
+    TicketService ticketServiceObj = tf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -25,7 +29,7 @@ public class UpdateTicket extends HttpServlet {
             ticket.setDescription(request.getParameter("description"));
             ticket.setStatus(Ticket.TicketStatus.valueOf(request.getParameter("status")));
 
-            Integer updatedId = ticketServiceDBObj.updateTicket(ticket);
+            Integer updatedId = ticketServiceObj.updateTicket(ticket);
             response.sendRedirect("Success.jsp?msg=ID "+updatedId + " Ticket Updated");
         } catch (Exception e) {
             e.printStackTrace();

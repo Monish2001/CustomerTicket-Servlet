@@ -1,7 +1,7 @@
 package com.operations;
 
 import models.Customer;
-import services.CustomerServiceDB;
+import services.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/CreateCustomer")
 public class CreateCustomer extends HttpServlet {
-    CustomerServiceDB customerServiceDBObj = CustomerServiceDB.getInstance();
+    CustomerFactory cf = CustomerFactory.getCFInstance();
+//    CustomerService customerServiceObj = cf.getInstance("DB");
+    CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException
@@ -25,7 +27,7 @@ public class CreateCustomer extends HttpServlet {
             customer.setName(request.getParameter("name"));
             customer.setEmail(request.getParameter("email"));
 
-            Integer createdCustomerId = customerServiceDBObj.createCustomer(customer);
+            Integer createdCustomerId = customerServiceObj.createCustomer(customer);
 
             PrintWriter out = response.getWriter();
             response.sendRedirect("Success.jsp?msg=ID "+createdCustomerId + " Inserted");

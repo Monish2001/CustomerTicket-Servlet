@@ -10,22 +10,22 @@
     <table align="center">
 
         <tr>
-            <td>To insert your details into the Database:</td>
+            <td>Create Customer:</td>
             <td><input type="button" value="Insert data"
                 onclick="window.location.href='CreateCustomer.jsp'" /></td>
         </tr>
         <tr>
-            <td>To delete your details from the Database:</td>
+            <td>Delete Customer:</td>
             <td><input type="button" value="Delete data"
                 onclick="window.location.href='DeleteCustomer.jsp'" /></td>
         </tr>
         <tr>
-            <td>View all customers in database:</td>
+            <td>View all customers:</td>
             <td><input type="button" value="View data"
-                onclick="window.location.href='ViewAllCustomer.jsp'" /></td>
+                onclick="window.location.href='ViewAllCustomer'" /></td>
         </tr>
         <tr>
-            <td>To view your details from the Database:</td>
+            <td>View customer with ID:</td>
             <td><input type="button" value="Select data"
                 onclick="window.location.href='ViewCustomer.jsp'" /></td>
         </tr>

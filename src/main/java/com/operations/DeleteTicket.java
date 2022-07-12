@@ -1,5 +1,7 @@
 package com.operations;
 
+import services.TicketFactory;
+import services.TicketService;
 import services.TicketServiceDB;
 
 import javax.servlet.ServletException;
@@ -11,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DeleteTicket")
 public class DeleteTicket extends HttpServlet {
-    TicketServiceDB ticketServiceDBObj = TicketServiceDB.getInstance();
+    TicketFactory tf = TicketFactory.getTFInstance();
+//    TicketService ticketServiceObj = tf.getInstance("DB");
+    TicketService ticketServiceObj = tf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
         try {
-            ticketServiceDBObj.deleteTicket(Integer.valueOf(request.getParameter("id")));
+            ticketServiceObj.deleteTicket(Integer.valueOf(request.getParameter("id")));
             response.sendRedirect("Success.jsp?msg=Delete");
         } catch (Exception e) {
             e.printStackTrace();
