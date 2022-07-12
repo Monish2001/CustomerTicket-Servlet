@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DeleteTicket")
 public class DeleteTicket extends HttpServlet {
-    TicketFactory tf = TicketFactory.getTFInstance();
-//    TicketService ticketServiceObj = tf.getInstance("DB");
-    TicketService ticketServiceObj = tf.getInstance("IM");
+    private TicketFactory tf = TicketFactory.getTFInstance();
+//    private TicketService ticketServiceObj = tf.getInstance("DB");
+    private TicketService ticketServiceObj = tf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
         try {

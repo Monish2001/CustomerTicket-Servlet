@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/UpdateCustomer")
 public class UpdateCustomer extends HttpServlet {
-    CustomerFactory cf = CustomerFactory.getCFInstance();
-//    CustomerService customerServiceObj = cf.getInstance("DB");
-    CustomerService customerServiceObj = cf.getInstance("IM");
+    private CustomerFactory cf = CustomerFactory.getCFInstance();
+//    private CustomerService customerServiceObj = cf.getInstance("DB");
+    private CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {

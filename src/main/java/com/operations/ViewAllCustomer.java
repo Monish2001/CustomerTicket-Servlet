@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ViewAllCustomer")
 public class ViewAllCustomer extends HttpServlet {
-    CustomerFactory cf = CustomerFactory.getCFInstance();
-//    CustomerService customerServiceObj = cf.getInstance("DB");
-    CustomerService customerServiceObj = cf.getInstance("IM");
+    private CustomerFactory cf = CustomerFactory.getCFInstance();
+//    private CustomerService customerServiceObj = cf.getInstance("DB");
+    private CustomerService customerServiceObj = cf.getInstance("IM");
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

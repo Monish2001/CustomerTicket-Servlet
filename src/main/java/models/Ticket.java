@@ -13,7 +13,6 @@ public class Ticket {
     private String description;
 
     private Enum status;
-    private Customer customer;
     private Integer customerId;
 
     public Integer getCustomerId() {
@@ -54,13 +53,5 @@ public class Ticket {
 
     public void setStatus(Enum status) {
         this.status = status;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 }
